@@ -1,0 +1,27 @@
+import java.util.*;
+public class superpowertime {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String time = sc.next();
+        int hr = Integer.parseInt(time.substring(0, 2));
+        int min = Integer.parseInt(time.substring(3, 5));
+        int minutesWaited = 0;
+        while (true) {
+            String hrS = (hr < 10 ? "0" : "") + hr;
+            String minS = (min < 10 ? "0" : "") + min;
+            String candidate = hrS + minS;
+            String reverse = new StringBuilder(candidate).reverse().toString();
+            if (candidate.equals(reverse)) {
+                System.out.println(minutesWaited);
+                break;
+            }
+            minutesWaited++;
+            min++;
+            if (min == 60) {
+                min = 0;
+                hr++;
+                if (hr == 24) hr = 0;
+            }
+        }
+    }
+}
