@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+public class DFSMETHOD {
+    static void dfs(int[][] a,int st,int v,boolean[] visited){
+        System.out.print(st+" ");
+        visited[st]=true;
+        for(int ev=0;ev<v;ev++){
+            if(a[st][ev]!=0&&!visited[ev]){
+                dfs(a,ev,v,visited);
+            }
+        }
+    }
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        int v=sc.nextInt();
+        int e=sc.nextInt();
+        int[][] a=new int[v][v];
+        for(int i=0;i<e;i++){
+            int st=sc.nextInt();
+            int ed=sc.nextInt();
+            a[st][ed]=1;
+            a[ed][st]=1;
+        }
+      boolean[] visited=new boolean[v];
+        visited[0]=true;
+        dfs(a,0,v,visited);
+    }
+}
