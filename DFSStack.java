@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class BFSStack {
+public class DFSStack {
     static void dfs(int[][] a,int st,int v,boolean[] visited){
         Stack<Integer> stack=new Stack<>();
         stack.push(0);
